@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess-Game</title>
+    <style>
+        #head1{
+            color:blue;
+            display: flex;
+            justify-content: center;
+        }
+        #div1
+        {
+            display: flex;
+            flex-direction: row;
+            margin-top:100px;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        button{
+            padding: 5px;
+            font-size: 25px;
+        }
+        #p1
+        {
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="head1">Welcome to Guessing Game</h1>
+    <div id="div1">
+        <button type="button" id="btn1">Start</button>
+        <button type="button" id="btn2">Reset</button>
+    </div>
+    <div id="div2">
+        <h2 id="p1"></h2>
+    </div>
+
+</body>
+<script>
+    const num=Math.ceil(Math.random()*10);
+    var x=document.getElementById("btn1");
+    x.addEventListener("click",starter);
+    console.log(num);
+    function starter() 
+    {
+        const gnum=prompt("Please Enter any number from 1 to 10");
+        if (gnum==num)
+        {
+            console.log("Matched!");
+            document.getElementById("p1").innerHTML="Matched! Well Played!";
+            document.body.style.backgroundColor="#78BE20"
+        }
+        else{
+            console.log("The number didn't match, the number was"+gnum);
+            document.getElementById("p1").innerHTML="Not Matched! Try Again!";
+            document.body.style.backgroundColor="#FF7F7F"
+        }
+        document.getElementById("btn2").addEventListener("click",function(){location.reload();});
+        // console.log(num);
+        
+    }
+</script>
+</html>
